@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>{% block title %}Гитары BATON ROUGE{% endblock %}</title>
+</head>
+<body>
+     <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="{% static "images/logo.png" %}" alt="Логотип">
+                </a>
+            </div>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'about' %}">О нас</a></li>
+                <li><a href="{% url 'guitars' %}">Гитары</a></li>
+                <li><a href="{% url 'contact' %}">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+         <div class="footer-content">
+             <div class="social-media">
+                <a href="https://www.facebook.com/batonrougeguitars" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.youtube.com/user/batonrougeguitars" target="_blank" class="social-icon">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/baton_rouge_guitars/?hl=de" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+             </div>
+            <p>&copy; 2024 BATON ROUGE Все права защищены</p>
+            <ul>
+                <li><a href="/about">О нас</a></li>
+                <li><a href="/contact">Связаться с нами</a></li>
+                <li><a href="https://www.batonrougeguitars.com/en/service/data-protection.html" target="_blank">Политика конфиденциальности</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

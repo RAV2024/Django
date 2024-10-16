@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Гитары{% endblock %}
+
+{% block content %}
+    <div class="guitar-title"><h2>Наши гитары</h2></div>
+
+    <form method="GET" action="{% url 'guitars' %}" class="form-container">
+    <div class="form-group">
+        <label for="min_price">Минимальная цена:</label>
+        <input type="number" name="min_price" id="min_price">
+    </div>
+    <div class="form-group">
+        <label for="max_price">Максимальная цена:</label>
+        <input type="number" name="max_price" id="max_price">
+    </div>
+    <button type="submit" class="btn-submit">Фильтровать</button>
+</form>
+
+    <div class="guitar-gallery">
+    {% for guitar in guitars %}
+        <div class="guitar-item">
+            <img src="{% static guitar.image %}" alt="{{ guitar.name }}" class="guitars-image">
+            <strong class="guitar-name">{{ guitar.name }}</strong>
+            <div class="guitar-info">
+                <p>Цена: {{ guitar.price }}₽</p>
+                <p>Материал верхней деки: {{ guitar.upper_deck_material }}</p>
+                <p>Материал нижней деки: {{ guitar.lower_deck_material }}</p>
+                <p>Материал грифа: {{ guitar.fingerboard_material }}</p>
+                <p>Количество ладов: {{ guitar.frets }}</p>
+                <p>Звукосниматель: {{ guitar.pickup }}</p>
+                <p>Струны: {{ guitar.strings }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+
+
+
+{% endblock %}
